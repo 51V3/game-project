@@ -37,8 +37,4 @@ class Enemies {
 
         requestAnimationFrame(() => this.move());
     }
-
-    createNewEnemy() {
-        new Enemies(this.gameScreen);
-    }
 }
