@@ -4,21 +4,21 @@ class Game {
         this.startScreen = document.getElementById("game-intro");
         this.gameScreen = document.getElementById("game-screen");
         this.gameEndScreen = document.getElementById("game-over");
-        this.player = new Player(gameScreen , left, top, width, height, imgSrc);
+        this.player = new Player(this.gameScreen , 200, 200, 200, 200, "../images/sight.png");
         this.height = 600;
         this.width = 500;
-        this.obstacles = [];
+        this.enemies = [];
         this.score = 0;
         this.lives = 3;
         this.gameOver = false;
-        this.loadingObstacle = false;
+        this.loadingEnemie = false;
     }
 
     start(){
         this.gameScreen.style.height = `${this.height}px`;
         this.gameScreen.style.width = `${this.width}px`;
         this.startScreen.style.display = "none"
-        this.gameScreen.style.display = "block"
+        this.gameScreen.style.display = "flex"
         this.gameLoop();
     }
 
@@ -30,20 +30,20 @@ class Game {
     }
 
     update(){
-        for (let i=0; i < this.obstacles.length; i++){
-            const obstacle = this.obstacles[i];
-            obstacle.move();
+        for (let i=0; i < this.enemies.length; i++){
+            const enemie = this.enemies[i];
+            enemie.move();
 
-            if(this.obstacles.height >= 50){
+            if(this.enemies.height >= 50){
                 this.lives --;
-                obstacle.element.remove();
-                this.obstacles.splice(i, 1);
+                enemie.element.remove();
+                this.enemies.splice(i, 1);
             }
 
-            else if(shotCollision(obstacle)) {
+            else if(shotCollision(enemie)) {
                 this.score ++;
-                obstacle.element.remove();
-                this.obstacles.splice(i, 1);
+                enemie.element.remove();
+                this.enemies.splice(i, 1);
             }
 
             if(this.lives === 0){
@@ -55,11 +55,11 @@ class Game {
         let lives = document.getElementById("lives");
         score.innerHTML = this.score;
         lives.innerHTML = this.lives;
-        if(!this.obstacles.length && !this.loadingObstacle){
-            this.loadingObstacle = true;
+        if(!this.enemies.length && !this.loadingEnemie){
+            this.loadingEnemie = true;
             setTimeout(() =>{
-                this.obstacles.push(new Obstacle(this.gameScreen));
-                this.loadingObstacle = false;
+                this.enemies.push(new Enemie(this.gameScreen));
+                this.loadingEnemie = false;
             }, 500);
         }
         
@@ -67,8 +67,8 @@ class Game {
     endGame(){
         this.gameOver = true;
         this.player.element.remove();
-        this.obstacles.forEach(obstacle=>{
-            obstacle.element.remove();
+        this.enemies.forEach(enemie=>{
+            enemie.element.remove();
         });
         this.gameScreen.style.display = "none";
         this.gameEndScreen.style.display = "block";
