@@ -57,7 +57,7 @@ class Game {
         if(!this.enemies.length && !this.loadingEnemie){
             this.loadingEnemie = true;
             setTimeout(() =>{
-                this.enemies.push(new Enemie(this.gameScreen));
+                this.enemies.push(new Enemies(this.gameScreen));
                 this.loadingEnemie = false;
             }, 500);
         }

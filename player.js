@@ -36,7 +36,7 @@ class Player {
 
         // Add click event listeners to each enemy
         Enemies.forEach(Enemies => {
-    Enemies.addEventListener('click', () => {
+Enemies.addEventListener('click', () => {
         // Handle shooting
         shoot(Enemies);
     });
