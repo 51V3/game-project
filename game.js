@@ -30,20 +30,20 @@ class Game {
 
     update(){
         for (let i=0; i < this.enemies.length; i++){
-            const enemie = this.enemies[i];
-            enemie.move();
-
-            if(this.enemies.height >= 50){
-                this.lives --;
-                enemie.element.remove();
-                this.enemies.splice(i, 1);
-            }
-
-            else if(shotCollision(enemie)) {
+            const enemy = this.enemies[i];
+            
+            if(this.player.shotCollision(enemy)) {
                 this.score ++;
-                enemie.element.remove();
+                enemy.element.remove();
                 this.enemies.splice(i, 1);
             }
+
+            else if(enemy.height >= 100){
+                this.lives --;
+                enemy.element.remove();
+                this.enemies.splice(i, 1);
+            }
+
 
             if(this.lives === 0){
                 this.endGame();

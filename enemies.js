@@ -4,10 +4,12 @@ class Enemies {
         this.element = document.createElement("img");
         this.element.src = "./images/275592.gif";
         this.left = 0;
+        this.top = 50;
         this.width = 100;
         this.height = 100;
         this.element.style.position = "absolute";
         this.element.style.left = `${this.left}px`;
+        this.element.style.marginTop = "43%";
         this.gameScreen.appendChild(this.element);
         this.direction = 1;
         this.boundary = this.gameScreen.offsetWidth - this.width;
@@ -16,11 +18,9 @@ class Enemies {
         
     updatePosition() {
         this.element.style.left = `${this.left}px`;
-        console.log("working")
     }
 
     move() {
-        console.log("working")
         if (this.left <= 0) {
             this.direction = 1;
             this.width += 50;

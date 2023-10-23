@@ -12,4 +12,11 @@ window.onload = function (){
         game = new Game();
         game.start();
     }
+
+    const shot = document.addEventListener("keydown", function(event){
+        if(event.key === " " || event.key === "Spacebar"){
+            game.update();
+        }
+    })
+    
 }
