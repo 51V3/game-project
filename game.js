@@ -4,7 +4,7 @@ class Game {
         this.startScreen = document.getElementById("game-intro");
         this.gameScreen = document.getElementById("game-screen");
         this.gameEndScreen = document.getElementById("game-over");
-        this.player = new Player(this.gameScreen , 200, 200, 200, 200, "../images/sight.png");
+        this.player = new Player(this.gameScreen , 200, 200, 4, 4, "../images/sight.png");
         this.height = 600;
         this.width = 500;
         this.enemies = [];
@@ -15,8 +15,6 @@ class Game {
     }
 
     start(){
-        this.gameScreen.style.height = `${this.height}px`;
-        this.gameScreen.style.width = `${this.width}px`;
         this.startScreen.style.display = "none"
         this.gameScreen.style.display = "flex"
         this.gameLoop();
