@@ -12,6 +12,7 @@ class Game {
         this.lives = 3;
         this.gameOver = false;
         this.loadingEnemie = false;
+        
     }
 
     start(){
