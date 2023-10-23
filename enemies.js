@@ -19,14 +19,12 @@ class Enemies {
     move(){
         if (this.left <= 0) {
             this.direction = 1;
-            this.height += 50;
-            this.width += 50;
-            this.element.style.transform = `scale(${this.width / 100}, ${this.height / 100})`;
+            this.element.style.transform = `scale(${this.width + 50}, ${this.height + 50})`;
         } else if (this.left >= window.innerWidth - this.width) {
             this.direction = -1;
             this.height += 50;
             this.width += 50;
-            this.element.style.transform = `scale(${this.width / 100}, ${this.height / 100})`;
+            this.element.style.transform = `scale(${this.width + 50}, ${this.height + 50})`;
         }
 
         this.left += this.direction;
