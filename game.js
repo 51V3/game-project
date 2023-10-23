@@ -27,28 +27,39 @@ class Game {
         }
         this.update()
     }
-
-    update(){
+   
+    updateCollision(){
         for (let i=0; i < this.enemies.length; i++){
             const enemy = this.enemies[i];
-            
+        
             if(this.player.shotCollision(enemy)) {
                 this.score ++;
                 enemy.element.remove();
                 this.enemies.splice(i, 1);
-            }
+            }  
+        }
+    }
 
-            else if(enemy.height >= 100){
+    update(){
+
+        for (let i=0; i < this.enemies.length; i++){
+            const enemy = this.enemies[i];
+            
+            
+
+            if(enemy.height >= 300){
                 this.lives --;
                 enemy.element.remove();
                 this.enemies.splice(i, 1);
             }
 
 
-            if(this.lives === 0){
+            else if(this.lives === 0){
                 this.endGame();
             }
         };
+
+        
 
         let score = document.getElementById("score");
         let lives = document.getElementById("lives");

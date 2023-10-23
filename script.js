@@ -13,10 +13,21 @@ window.onload = function (){
         game.start();
     }
 
+    setInterval(()=>{
+        game.update()
+    }, 500);
+
     const shot = document.addEventListener("keydown", function(event){
         if(event.key === " " || event.key === "Spacebar"){
-            game.update();
+            game.updateCollision();
         }
     })
+
+    restartButton.addEventListener("click", function(){
+        restartGame()
+    })
     
+    function restartGame() {
+        location.reload();
+      }
 }

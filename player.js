@@ -33,14 +33,17 @@ class Player {
 
       if (playerRect.left < obstacleRect.right &&
           playerRect.right > obstacleRect.left &&
-          playerRect.top > obstacleRect.bottom &&
-          playerRect.bottom < obstacleRect.top) {
-          // Mark the enemy as collapsing and return true
-          enemy.isColliding = true;
+          playerRect.top < obstacleRect.bottom &&
+          playerRect.bottom > obstacleRect.top) {
+          
           return true;
         }
-        return false;
+
+        else {
+
+          return false;
       }
+    }
       
       // Para por na classe 'Game' 
       /*function handleDamage(player, enemy) {

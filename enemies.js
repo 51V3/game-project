@@ -22,11 +22,11 @@ class Enemies {
 
     move() {
         if (this.left <= 0) {
-            this.direction = 1;
+            this.direction = 5;
             this.width += 50;
             this.height += 50;
         } else if (this.left >= this.boundary) {
-            this.direction = -1;
+            this.direction = -5;
             this.width += 50;
             this.height += 50;
         }
