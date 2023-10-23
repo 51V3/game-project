@@ -10,6 +10,8 @@ class Player {
       this.height = height;
       this.imgSrc = imgSrc;
       this.element = document.createElement("img");
+      this.element.style.position = "fixed";
+      this.element.style.zIndex = "7";
 
       // Para move : this.directionX = 0;
       //             this.directionY = 0;
@@ -31,34 +33,29 @@ class Player {
     
     shoot(){
         // Click To Shoot - addEventListener adicionar
-        window.onload = function () {
-          const shootButton = document.getElementById("shoot-button"); // add to HTML "shoot-button" part.
-          
-        let collision;
-        
-          shootButton.addEventListener("click", function () {
-            collision = new Game();
-            game.start();
-          });
-        
 
-          }
-        
-          
-          function restartGame() {
-            location.reload();
-          }
-        
-          function startGame() {
-            console.log("start game");
-          }
+        // Add click event listeners to each enemy
+        Enemies.forEach(Enemies => {
+    Enemies.addEventListener('click', () => {
+        // Handle shooting
+        shoot(Enemies);
+    });
+});
+
+// Function to handle shooting an enemy
+function shoot(enemy) {
+    // Trigger a shooting animation or effect (e.g., changing the enemy's appearance)
+    
+    // Remove the enemy from the DOM
+    enemy.remove();
+}
     }
 
-    shotCollision (obstacle){
+    shotCollision (player, enemy){
       const playerRect = this.element.getBoundingClientRect();
       const obstacleRect = obstacle.element.getBoundingClientRect();
 
-      if (!enemy.isColliding &&
+      if (shoot &&
           playerRect.left < obstacleRect.right &&
           playerRect.right > obstacleRect.left &&
           playerRect.top < obstacleRect.bottom &&
