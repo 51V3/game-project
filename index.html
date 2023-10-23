@@ -8,9 +8,14 @@
 </head>
 <body>
     <section id="game-intro">
+      <div class="start-info">
         <h1> Heading </h1>
-        <p> Description of the game</p>
+        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget erat luctus, varius felis vel, suscipit felis. Nam nec elit eu lorem posuere porta. Integer ultrices id lorem ut varius. Morbi at consequat tellus, eget auctor diam. Maecenas ornare egestas ipsum, et lacinia metus. Etiam tristique turpis nisi, quis imperdiet augue dictum sit amet. Ut efficitur porta tristique. </p>
         <button id="start-button">Start Game</button>
+      </div>
+      <video autoplay muted loop id="my-video">
+        <source src="./images/space-video.mp4" type="video/mp4">
+      </video>
     </section>
     <section id="game-screen">
         <div id="player-board">
@@ -19,13 +24,17 @@
           <p>Lives: <span id="lives">3</span></p>
         </div>
         <div id="game-screen"></div>
-      </section>
-    <div id="game-over">
+    </section>
+    <section id="game-over">
+      <div id="over-info">
         <h1>Game Over</h1>
-        <p> Description bla bla bla</p>
+        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget erat luctus, varius felis vel, suscipit felis. </p>
         <button id="restart-button">Restart</button>
       </div>
-    </main>
+      <video autoplay muted loop id="over-video">
+        <source src="./images/space-video.mp4" type="video/mp4">
+      </video>
+    </section>
     <script src="game.js"></script>
     <script src="player.js"></script>
     <script src="enemies.js"></script>
