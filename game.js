@@ -4,7 +4,7 @@ class Game {
         this.startScreen = document.getElementById("game-intro");
         this.gameScreen = document.getElementById("game-screen");
         this.gameEndScreen = document.getElementById("game-over");
-        this.player = new Player();
+        this.player = new Player(gameScreen , left, top, width, height, imgSrc);
         this.height = 600;
         this.width = 500;
         this.obstacles = [];
@@ -34,13 +34,13 @@ class Game {
             const obstacle = this.obstacles[i];
             obstacle.move();
 
-            if(this.player.didCollide(obstacle)){
+            if(this.obstacles.height >= 50){
                 this.lives --;
                 obstacle.element.remove();
                 this.obstacles.splice(i, 1);
             }
 
-            else {
+            else if(shotCollision(obstacle)) {
                 this.score ++;
                 obstacle.element.remove();
                 this.obstacles.splice(i, 1);

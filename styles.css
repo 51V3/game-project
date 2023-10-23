@@ -3,8 +3,8 @@ body{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 780px;
-    height: 120px;
+    width: 100%;
+    height: 100%;
     margin: 0;
     padding: 0;
 }
@@ -13,13 +13,13 @@ body{
     src: url(./images/MegatransdemoRegular.otf);
 }
 #game-intro{
-    display: flex;
+    display: none;
     justify-content: right;
     align-items:center;
     font-family: MegatransdemoRegular;
     font-size: 40px;
-    display: block;
 }
+
 #game-intro p{
     font-size: 20px ;
 }
@@ -63,7 +63,127 @@ body{
 }
 
 #game-screen{
-    display: none;
+    display: flex;
+    justify-content: right;
+    align-items:center;
+    font-family: MegatransdemoRegular;
+    font-size: 40px;
+    width: 100%;
+    height: 100%;
+}
+
+#game-screen-video{
+    position: relative;
+    z-index:-1;
+    right: 0;
+    bottom: 0;
+    width: 100%; 
+    height: 100%;
+}
+
+#player-board{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top:0;
+    left:0;
+    z-index:1;
+    color:white;
+    margin-left: 600px;
+    margin-top: 100px;
+}
+
+#score{
+    position: fixed;
+    justify-content: center;
+    align-items:center;
+    top:0;
+    left:0;
+    z-index:4;
+    color:white;
+    width: 20px;
+    height: 20px;
+    margin-top: 520px;
+    margin-left: 475px;
+    background-color: black;
+    padding-left: 15px;
+    padding-right: 10px;
+    padding-bottom: 40px;
+    padding-top: 30px;
+    color: #0093f5;
+}
+
+#score-set{
+    position: fixed;
+    justify-content: center;
+    align-items:center;
+    top:0;
+    left:0;
+    z-index:3;
+    color:white;
+    width: 20px;
+    height: 20px;
+    margin-top: 550px;
+    margin-left: 390px;
+    background-color: black;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 40px;
+    padding-top: 0px;
+    color: #0093f5;
+    font-size: 20px;
+}
+
+#lives{
+    position: fixed;
+    justify-content: center;
+    align-items:center;
+    top:0;
+    left:0;
+    z-index:6;
+    color:white;
+    width: 20px;
+    height: 20px;
+    margin-top: 520px;
+    margin-left: 890px;
+    background-color: black;
+    padding-left: 15px;
+    padding-bottom: 40px;
+    padding-top: 30px;
+    color: #0093f5;
+}
+
+#lives-set{
+    position: fixed;
+    justify-content: center;
+    align-items:center;
+    top:0;
+    left:0;
+    z-index:5;
+    color:white;
+    width: 20px;
+    height: 20px;
+    margin-top: 520px;
+    margin-left: 820px;
+    background-color: black;
+    padding-left: 10px;
+    padding-right: 40px;
+    padding-top: 30px;
+    padding-bottom: 40px;
+    color: #0093f5;
+    font-size: 20px;
+}
+
+#player-board img{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    justify-content: center;
+    align-items:center;
+    top:0;
+    left:0;
+    z-index:1;
+    color:white;
 }
 
 #game-over{
