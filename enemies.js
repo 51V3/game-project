@@ -11,31 +11,34 @@ class Enemies {
         this.gameScreen.appendChild(this.element);
         this.direction = 1;
         this.boundary = this.gameScreen.offsetWidth - this.width;
-        this.scaleFactor = 1.2;
-        /* this.health = 50;
-        this.damage=5;
-        this.isCollapsing= false; */
+        this.move();
     }
         
-    updatePosition(){
+    updatePosition() {
         this.element.style.left = `${this.left}px`;
     }
 
-    move(){
+    move() {
         if (this.left <= 0) {
             this.direction = 1;
             this.width += 50;
             this.height += 50;
-            this.element.style.transform = `scale(${this.width}px, ${this.height}px)`;
         } else if (this.left >= this.boundary) {
             this.direction = -1;
             this.width += 50;
             this.height += 50;
-            this.element.style.transform = `scale(${this.width}px, ${this.height}px)`;
         }
 
         this.left += this.direction;
         this.updatePosition();
+
+        this.element.style.width = `${this.width}px`;
+        this.element.style.height = `${this.height}px`;
+
         requestAnimationFrame(() => this.move());
+    }
+
+    createNewEnemy() {
+        new Enemies(this.gameScreen);
     }
 }
