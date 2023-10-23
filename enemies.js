@@ -2,7 +2,7 @@ class Enemies {
     constructor(gameScreen) {
         this.gameScreen = gameScreen;
         this.element = document.createElement("img");
-        this.element.src = "images/275592.gif";
+        this.element.src = "./images/275592.gif";
         this.left = 0;
         this.width = 100;
         this.height = 100;
@@ -16,9 +16,11 @@ class Enemies {
         
     updatePosition() {
         this.element.style.left = `${this.left}px`;
+        console.log("working")
     }
 
     move() {
+        console.log("working")
         if (this.left <= 0) {
             this.direction = 1;
             this.width += 50;
