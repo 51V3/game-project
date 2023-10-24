@@ -35,10 +35,11 @@ class Game {
                 this.score ++;
                 enemy.element.remove();
                 this.enemies.splice(i, 1);
-            }  
+            }
         }
     }
 
+    
     update(){
         for (let i=0; i < this.enemies.length; i++){
             const enemy = this.enemies[i];
