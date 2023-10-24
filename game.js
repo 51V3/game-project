@@ -1,10 +1,9 @@
 class Game {
-    // code to be added
     constructor(){
         this.startScreen = document.getElementById("game-intro");
         this.gameScreen = document.getElementById("game-screen");
         this.gameEndScreen = document.getElementById("game-over");
-        this.player = new Player(this.gameScreen , "50%", "40%", 4, 4, "../images/sight.png");
+        this.player = new Player(this.gameScreen , "50", "40", 40, 40, "../images/sight.png"); // Adjust the initial position and size as needed
         this.height = 600;
         this.width = 800;
         this.enemies = [];
@@ -12,7 +11,6 @@ class Game {
         this.lives = 3;
         this.gameOver = false;
         this.loadingEnemie = false;
-        
     }
 
     start(){
@@ -23,9 +21,10 @@ class Game {
 
     gameLoop(){
         if(this.gameOver){
-            return
+            return;
         }
-        this.update()
+        this.update();
+        requestAnimationFrame(() => this.gameLoop()); // Use requestAnimationFrame for smoother animations
     }
    
     updateCollision(){
@@ -41,27 +40,19 @@ class Game {
     }
 
     update(){
-
-        this.player.move();
-
         for (let i=0; i < this.enemies.length; i++){
             const enemy = this.enemies[i];
             
-            
-
             if(enemy.height >= 300){
                 this.lives --;
                 enemy.element.remove();
                 this.enemies.splice(i, 1);
             }
 
-
             else if(this.lives === 0){
                 this.endGame();
             }
         };
-
-        
 
         let score = document.getElementById("score");
         let lives = document.getElementById("lives");
@@ -74,9 +65,8 @@ class Game {
                 this.loadingEnemie = false;
             }, 500);
         }
-
-        
     }
+
     endGame(){
         this.gameOver = true;
         this.player.element.remove();
@@ -86,4 +76,4 @@ class Game {
         this.gameScreen.style.display = "none";
         this.gameEndScreen.style.display = "block";
     }
-};
+}
