@@ -11,7 +11,7 @@ window.onload = function () {
       console.log("start Game");
       game = new Game();
       game.start();
-      requestAnimationFrame(gameLoop); // Start the game loop with requestAnimationFrame
+      requestAnimationFrame(gameLoop); 
   }
 
   function gameLoop() {
@@ -19,9 +19,9 @@ window.onload = function () {
           game.update();
       }
       if (game && game.player) {
-          game.player.move(); // Call the move method for the player
+          game.player.move(); 
       }
-      requestAnimationFrame(gameLoop); // Loop the game continuously
+      requestAnimationFrame(gameLoop); 
   }
 
   const shot = document.addEventListener("keydown", function (event) {
@@ -66,10 +66,12 @@ window.onload = function () {
           if (game && game.player) {
               switch (key) {
                   case "ArrowLeft":
+                      game.player.directionX = 0;
                   case "ArrowRight":
                       game.player.directionX = 0;
                       break;
                   case "ArrowUp":
+                      game.player.directionY = 0;
                   case "ArrowDown":
                       game.player.directionY = 0;
                       break;
