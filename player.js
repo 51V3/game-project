@@ -44,6 +44,39 @@ class Player {
           return false;
       }
     }
+
+    move(){ //copiado do race car
+
+      //update player's car position based on direction
+      this.left += this.directionX;
+      this.top += this.directionY;
+
+      // Right - side (limit)
+      if(this.left + this.width >= this.gameScreen.offsetWidth){
+          this.left = this.gameScreen.offsetWidth - this.width;
+      }
+      // Left - side (limit)
+      else if(this.left <= 0){
+          this.left = 0;
+      }
+      // Bottom - side (limit)
+      if (this.top >= this.gameScreen.offsetHeight - this.height){
+          this.top = this.gameScreen.offsetHeight - this.height;
+      }
+      // Top - side (limit)
+      else if(this.top <= 0){
+          this.top = 0;
+      }
+
+      this.updatedPosition()
+  }
+
+  updatedPosition(){
+      // Update CSS
+      this.element.style.left = `${this.left}px`;
+      this.element.style.top = `${this.top}px`;
+  }
+    } 
       
       // Para por na classe 'Game' 
       /*function handleDamage(player, enemy) {
@@ -57,4 +90,4 @@ class Player {
         }
       */
       
-  }
+      

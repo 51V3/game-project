@@ -28,6 +28,8 @@ window.onload = function (){
         const possibleKeystrokes = [
           "ArrowLeft", 
           "ArrowRight",
+          "ArrowUp", 
+          "ArrowDown"
         ];
 
         if(possibleKeystrokes.includes(key)){
@@ -39,6 +41,12 @@ window.onload = function (){
                   break;
                 case "ArrowRight": 
                   game.player.directionX = 5
+                  break;
+                case "ArrowUp": 
+                  game.player.directionY = -5
+                  break;
+                case "ArrowDown": 
+                  game.player.directionY = 5
                   break;
               }
             }
@@ -52,6 +60,8 @@ window.onload = function (){
         const possibleKeystrokes = [
           "ArrowLeft", 
           "ArrowRight",
+          "ArrowUp", 
+          "ArrowDown"
         ];
 
         if(possibleKeystrokes.includes(key)){
@@ -63,6 +73,12 @@ window.onload = function (){
                   break;
                 case "ArrowRight": 
                   game.player.directionX = 0
+                  break;
+                case "ArrowUp": 
+                  game.player.directionY = 0
+                  break;
+                case "ArrowDown": 
+                  game.player.directionY = 0
                   break;
                 }
             }
