@@ -42,6 +42,8 @@ class Game {
 
     update(){
 
+        this.player.move();
+
         for (let i=0; i < this.enemies.length; i++){
             const enemy = this.enemies[i];
             
@@ -72,6 +74,7 @@ class Game {
                 this.loadingEnemie = false;
             }, 500);
         }
+
         
     }
     endGame(){
