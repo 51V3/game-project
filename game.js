@@ -3,7 +3,7 @@ class Game {
         this.startScreen = document.getElementById("game-intro");
         this.gameScreen = document.getElementById("game-screen");
         this.gameEndScreen = document.getElementById("game-over");
-        this.player = new Player(this.gameScreen , "50", "40", 40, 40, "../images/sight.png"); // Adjust the initial position and size as needed
+        this.player = new Player(this.gameScreen, 50, 20, 40, 40, "../images/sight.png");
         this.height = 600;
         this.width = 800;
         this.enemies = [];
@@ -24,7 +24,7 @@ class Game {
             return;
         }
         this.update();
-        requestAnimationFrame(() => this.gameLoop()); // Use requestAnimationFrame for smoother animations
+        requestAnimationFrame(() => this.gameLoop()); 
     }
    
     updateCollision(){
@@ -35,11 +35,10 @@ class Game {
                 this.score ++;
                 enemy.element.remove();
                 this.enemies.splice(i, 1);
-            }
+            }  
         }
     }
 
-    
     update(){
         for (let i=0; i < this.enemies.length; i++){
             const enemy = this.enemies[i];
