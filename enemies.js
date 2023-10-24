@@ -12,25 +12,23 @@ class Enemies {
         this.element.style.marginTop = "43%";
         this.gameScreen.appendChild(this.element);
         this.direction = 1;
-        this.boundary = this.gameScreen.offsetWidth - this.width;
+        this.boundary = this.gameScreen.offsetWidth;
         this.move();
     }
         
     updatePosition() {
         this.element.style.left = `${this.left}px`;
+        
     }
 
     move() {
         if (this.left <= 0) {
             this.direction = 5;
-            this.width += 50;
-            this.height += 50;
-        } else if (this.left >= this.boundary) {
+        } else if (this.left + this.width>= this.boundary) {
             this.direction = -5;
-            this.width += 50;
-            this.height += 50;
         }
-
+        this.width += 0.2;
+        this.height += 0.2;
         this.left += this.direction;
         this.updatePosition();
 
