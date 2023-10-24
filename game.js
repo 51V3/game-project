@@ -43,7 +43,7 @@ class Game {
         for (let i=0; i < this.enemies.length; i++){
             const enemy = this.enemies[i];
             
-            if(enemy.height >= 300){
+            if(enemy.height >= 250){
                 this.lives --;
                 enemy.element.remove();
                 this.enemies.splice(i, 1);
