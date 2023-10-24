@@ -3,11 +3,11 @@ class Enemies {
         this.gameScreen = gameScreen;
         this.element = document.createElement("img");
         this.element.src = "./images/275592.gif";
-        this.left = 0;
-        this.top = 50;
+        this.left = Math.floor(Math.random());
+        this.top = Math.floor(Math.random());
         this.width = 100;
         this.height = 100;
-        this.element.style.position = "absolute";
+        this.element.style.position = "relative";
         this.element.style.left = `${this.left}px`;
         this.element.style.marginTop = "-200px";
         this.gameScreen.appendChild(this.element);
