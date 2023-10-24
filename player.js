@@ -3,8 +3,8 @@ class Player {
       this.health = 100;
       this.damage = 10;
       this.gameScreen = gameScreen;
-      this.left = parseFloat(left) / 100 * this.gameScreen.offsetWidth;
-      this.top = parseFloat(top) / 100 * this.gameScreen.offsetHeight;
+      this.left = left
+      this.top = top
       this.width = width;
       this.height = height;
       this.imgSrc = imgSrc;
@@ -41,13 +41,24 @@ class Player {
       }
   }
 
-  move() {
-      // Update the player's position based on the direction
-      this.left += this.directionX;
-      this.top += this.directionY;
+  moveWithMouse(mouseX, mouseY) {
+        // Update the player's position based on the mouse cursor's position
+        this.left = mouseX - this.width / 2; // Adjust for player's width
+        this.top = mouseY - this.height / 2; // Adjust for player's height
+
+        // Ensure the player stays within the boundaries
+        const minX = 0;
+        const maxX = this.gameScreen.offsetWidth - this.width;
+        const minY = 0;
+        const maxY = this.gameScreen.offsetHeight - this.height;
+
+        this.left = Math.max(minX, Math.min(maxX, this.left));
+        this.top = Math.max(minY, Math.min(maxY, this.top));
+    
 
       // Update the CSS
       this.element.style.left = `${this.left}px`;
       this.element.style.top = `${this.top}px`;
-  }
-}
+    }
+ }
+
