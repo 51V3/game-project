@@ -45,7 +45,7 @@ class Player {
       }
     }
 
-    /* move(){ //copiado do race car
+    move(){ //copiado do race car
 
       //update player's car position based on direction
       this.left += this.directionX;
@@ -76,7 +76,7 @@ class Player {
       this.element.style.left = `${this.left}px`;
       this.element.style.top = `${this.top}px`;
   }
-    } */
+    } 
       
       // Para por na classe 'Game' 
       /*function handleDamage(player, enemy) {
@@ -90,4 +90,4 @@ class Player {
         }
       */
       
-      }
+      
