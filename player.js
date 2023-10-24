@@ -10,7 +10,7 @@ class Player {
       this.height = height;
       this.imgSrc = imgSrc;
       this.element = document.createElement("img");
-      this.element.style.position = "fixed";
+      this.element.style.position = "relative";
       this.element.style.zIndex = "7";
       this.directionX = 0;
       this.directionY = 0;
@@ -49,8 +49,6 @@ class Player {
       //update player's car position based on direction
       this.left += this.directionX;
       this.top += this.directionY;
-
-      console.log("oi")
 
       // Right - side (limit)
       if(this.left + this.width >= this.gameScreen.offsetWidth){

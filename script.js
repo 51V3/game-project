@@ -17,6 +17,7 @@ window.onload = function (){
         game.update()
     }, 500);
 
+    
     const shot = document.addEventListener("keydown", function(event){
         if(event.key === " " || event.key === "Spacebar"){
             game.updateCollision();

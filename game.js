@@ -26,6 +26,9 @@ class Game {
             return
         }
         this.update()
+
+        window.requestAnimationFrame(()=> this.gameLoop());
+
     }
    
     updateCollision(){
@@ -36,33 +39,27 @@ class Game {
                 this.score ++;
                 enemy.element.remove();
                 this.enemies.splice(i, 1);
-            }  
+            }
         }
     }
 
+    
     update(){
-
-        this.player.move();
 
         for (let i=0; i < this.enemies.length; i++){
             const enemy = this.enemies[i];
-            
-            
 
             if(enemy.height >= 300){
                 this.lives --;
                 enemy.element.remove();
                 this.enemies.splice(i, 1);
-            }
-
+            }  
 
             else if(this.lives === 0){
                 this.endGame();
             }
-        };
-
+          }
         
-
         let score = document.getElementById("score");
         let lives = document.getElementById("lives");
         score.innerHTML = this.score;
@@ -74,8 +71,6 @@ class Game {
                 this.loadingEnemie = false;
             }, 500);
         }
-
-        
     }
     endGame(){
         this.gameOver = true;
@@ -86,4 +81,5 @@ class Game {
         this.gameScreen.style.display = "none";
         this.gameEndScreen.style.display = "block";
     }
-};
+    
+}
