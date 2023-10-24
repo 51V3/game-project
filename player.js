@@ -1,7 +1,5 @@
 class Player {
   constructor(gameScreen, left, top, width, height, imgSrc) {
-/*       this.health = 100;
-      this.damage = 10; */
       this.gameScreen = gameScreen;
       this.left = left;
       this.top = top;
@@ -10,8 +8,7 @@ class Player {
       this.imgSrc = imgSrc;
       this.element = document.createElement("img");
       this.element.style.position = "absolute";
-      this.element.style.zIndex = "0";
-      this.element.style.display = "block"; 
+      this.element.style.zIndex = "1";
       this.directionX = 0;
       this.directionY = 0;
 
@@ -26,7 +23,6 @@ class Player {
   }
 
   move() {
-    // Update the player's position based on the direction
     this.left += this.directionX;
     this.top += this.directionY;
     

@@ -9,7 +9,7 @@ class Enemies {
         this.height = 100;
         this.element.style.position = "absolute";
         this.element.style.left = `${this.left}px`;
-        this.element.style.marginTop = "43%";
+        this.element.style.marginTop = "-200px";
         this.gameScreen.appendChild(this.element);
         this.direction = 1;
         this.boundary = this.gameScreen.offsetWidth;
