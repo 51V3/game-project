@@ -23,6 +23,53 @@ window.onload = function (){
         }
     })
 
+    function handleKeydown(event){
+        const key = event.key;
+        const possibleKeystrokes = [
+          "ArrowLeft", 
+          "ArrowRight",
+        ];
+
+        if(possibleKeystrokes.includes(key)){
+            event.preventDefault();
+            if(game){
+              switch (key){
+                case "ArrowLeft": 
+                  game.player.directionX = -5
+                  break;
+                case "ArrowRight": 
+                  game.player.directionX = 5
+                  break;
+              }
+            }
+          }
+        };
+
+    window.addEventListener("keydown", handleKeydown);
+
+    function handleKeyup(event){
+        const key = event.key;
+        const possibleKeystrokes = [
+          "ArrowLeft", 
+          "ArrowRight",
+        ];
+
+        if(possibleKeystrokes.includes(key)){
+            event.preventDefault();
+            if(game){
+              switch (key){
+                case "ArrowLeft": 
+                  game.player.directionX = 0 
+                  break;
+                case "ArrowRight": 
+                  game.player.directionX = 0
+                  break;
+                }
+            }
+        }
+    };
+    window.addEventListener("keyup", handleKeyup);
+
     restartButton.addEventListener("click", function(){
         restartGame()
     })
