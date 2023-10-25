@@ -16,6 +16,7 @@ class Enemies {
         this.boundaryX = this.gameScreen.offsetWidth - this.width;
         this.boundaryY = this.gameScreen.offsetHeight + 200 - this.height;
         this.move();
+        
     }
         
     updatePosition() {
