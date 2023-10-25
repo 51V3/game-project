@@ -14,7 +14,7 @@ body{
     src: url(./images/MegatransdemoRegular.otf);
 }
 #game-intro{
-    display: flex;
+    display: block;
     justify-content: right;
     align-items:center;
     font-family: MegatransdemoRegular;
@@ -74,6 +74,7 @@ body{
     display: none;
     justify-content: center;
     align-items:center;
+    position: center center;
     font-family: MegatransdemoRegular;
     font-size: 40px;
     position: absolute;
@@ -168,11 +169,11 @@ body{
     color:white;
     width: 20px;
     height: 20px;
-    margin-top: 43.5%;
-    margin-left: 64.2%;
-    background-color: black;
+    padding-top: 43.5%;
+    padding-left: 64.2%;
     color: #0093f5;
-    font-size: 20px;text-shadow: 1px 1px 2px rgb(141, 148, 255), 0 0 1em rgb(141, 148, 255), 0 0 0.2em rgb(141, 148, 255);
+    font-size: 20px;
+    text-shadow: 1px 1px 2px rgb(141, 148, 255), 0 0 1em rgb(141, 148, 255), 0 0 0.2em rgb(141, 148, 255);
 }
 
 #player-board img{
@@ -185,6 +186,28 @@ body{
     left:0;
     z-index:1;
     color:white;
+}
+
+#new-level{
+    display:  none;
+    z-index: 8;
+    justify-content: center;
+    margin-top: 30%;
+    width: 50%;
+    height: 100%;
+    font-size: 60px;
+    text-shadow: 1px 1px 3px rgb(255, 175, 109), 0 0 2em rgb(255, 175, 109), 0 0 0.5em rgb(255, 175, 109);
+    color: rgb(255, 137, 40);
+}
+
+#collision{
+    display: none;
+    z-index: 0;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: #ff0000;
+    opacity: 30%;
 }
 
 #game-over{
