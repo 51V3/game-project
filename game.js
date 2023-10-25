@@ -52,10 +52,24 @@ class Game {
                 }, 1000);
                 this.lives --;
                 enemy.element.remove();
-                this.enemies.splice(i, 1);
-            }
-
-            else if(this.lives <= 0){
+                if(this.score >= 3 && this.score <= 6){
+                    this.lives --;
+                    enemy.element.remove();
+                    enemy.element.remove();
+                    this.enemies.splice(i, 2);
+                } else if(this.score >= 7 && this.score <= 12){
+                    this.lives --;
+                    enemy.element.remove();
+                    enemy.element.remove();
+                    enemy.element.remove();
+                    this.enemies.splice(i, 3);
+                } else{
+                    this.lives --;
+                    enemy.element.remove();
+                    this.enemies.splice(i, 1);
+                }
+            } else if(this.lives <= 0){
+                this.lives = 0;
                 this.endGame();
             }
         };
