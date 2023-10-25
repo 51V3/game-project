@@ -43,7 +43,7 @@ class Game {
     }
 
     update(){
-        for (let i=0; i < this.enemies.length; i++){
+        for (let i = this.enemies.length - 1; i >= 0; i--){
             const enemy = this.enemies[i];
             
             if(enemy.height >= 250){
@@ -52,16 +52,15 @@ class Game {
                     document.getElementById("collision").style.display = "none";
                     this.isLevelUp[2] = true;
                 }, 1000);
-                enemy.element.remove();
-                if(this.score >= 3 && this.score <= 6){
+                if(this.score >= 3 && this.score < 7){
                     this.lives --;
                     enemy.element.remove();
                     this.enemies.splice(i, 2);
-                } else if(this.score >= 7 && this.score <= 13){
+                } else if(this.score >= 7 && this.score < 13){
                     this.lives --;
                     enemy.element.remove();
                     this.enemies.splice(i, 3);
-                } else{
+                } else if(this.score < 3){
                     this.lives --;
                     enemy.element.remove();
                     this.enemies.splice(i, 1);
@@ -96,7 +95,7 @@ class Game {
         let lives = document.getElementById("lives");
         score.innerHTML = this.score;
         lives.innerHTML = this.lives;
-        if(this.score >= 3 && this.score <= 6){
+        if(this.score >= 3 && this.score < 7){
             if(!this.enemies.length && !this.loadingEnemie){
                 this.loadingEnemie = true;
                 setTimeout(() =>{
@@ -105,7 +104,7 @@ class Game {
                     this.loadingEnemie = false;
                 }, 500);
             }
-        } else if(this.score >= 7 && this.score <= 12){
+        } else if(this.score >= 7 && this.score < 13){
             if(!this.enemies.length && !this.loadingEnemie){
                 this.loadingEnemie = true;
                 setTimeout(() =>{
@@ -146,3 +145,4 @@ class Game {
         this.gameEndScreen.style.display = "block";
     }
 }
+
