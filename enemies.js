@@ -49,3 +49,4 @@ class Enemies {
         requestAnimationFrame(() => this.move());
     }
 }
+
