@@ -39,16 +39,16 @@ window.onload = function () {
           if (game && game.player) {
               switch (key) {
                   case "ArrowLeft":
-                      game.player.directionX = - 10;
+                      game.player.directionX = -5;
                       break;
                   case "ArrowRight":
-                      game.player.directionX = 10;
+                      game.player.directionX = 5;
                       break;
                   case "ArrowUp":
-                      game.player.directionY = - 10;
+                      game.player.directionY = -5;
                       break;
                   case "ArrowDown":
-                      game.player.directionY = 10;
+                      game.player.directionY = 5;
                       break;
               }
           }
@@ -90,3 +90,4 @@ window.onload = function () {
       location.reload();
   }
 };
+
