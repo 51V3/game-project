@@ -44,6 +44,7 @@ class Game {
 
     update(){
         for (let i = this.enemies.length - 1; i >= 0; i--){
+            
             const enemy = this.enemies[i];
             
             if(enemy.height >= 250){
