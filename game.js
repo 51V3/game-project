@@ -55,7 +55,7 @@ class Game {
                 this.enemies.splice(i, 1);
             }
 
-            else if(this.lives === 0){
+            else if(this.lives <= 0){
                 this.endGame();
             }
         };
