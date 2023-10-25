@@ -3,7 +3,7 @@ class Game {
         this.startScreen = document.getElementById("game-intro");
         this.gameScreen = document.getElementById("game-screen");
         this.gameEndScreen = document.getElementById("game-over");
-        this.player = new Player(this.gameScreen, 50, 20, 35, 35, "../images/sight.png");
+        this.player = new Player(this.gameScreen, 50, 20, 40, 40, "../images/sight.png");
         this.height = 600;
         this.width = 800;
         this.enemies = [];
@@ -45,6 +45,11 @@ class Game {
             const enemy = this.enemies[i];
             
             if(enemy.height >= 250){
+                document.getElementById("collision").style.display = "block";
+                setTimeout(() => {
+                    document.getElementById("collision").style.display = "none";
+                    this.isLevelUp[2] = true;
+                }, 1000);
                 this.lives --;
                 enemy.element.remove();
                 this.enemies.splice(i, 1);
