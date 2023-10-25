@@ -42,7 +42,6 @@ class Enemies {
         this.left += this.directionX;
         this.top += this.directionY;
         this.updatePosition();
-
         this.element.style.width = `${this.width}px`;
         this.element.style.height = `${this.height}px`;
 

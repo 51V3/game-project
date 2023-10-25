@@ -11,9 +11,7 @@ class Player {
       this.element.style.zIndex = "1";
       this.directionX = 0;
       this.directionY = 0;
-
       this.element.src = imgSrc;
-
       this.element.style.width = `${width}px`;
       this.element.style.height = `${height}px`;
       this.element.style.left = `${left}px`;

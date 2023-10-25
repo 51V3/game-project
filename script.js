@@ -34,7 +34,6 @@ window.onload = function () {
   function handleKeydown(event) {
       const key = event.key;
       const possibleKeystrokes = ["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown"];
-
       if (possibleKeystrokes.includes(key)) {
           event.preventDefault();
           if (game && game.player) {

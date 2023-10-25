@@ -12,6 +12,7 @@ body{
 @font-face {
     font-family: MegatransdemoRegular;
     src: url(./images/MegatransdemoRegular.otf);
+    
 }
 #game-intro{
     display: block;
