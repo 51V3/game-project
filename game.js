@@ -68,9 +68,7 @@ class Game {
                     enemy.element.remove();
                     this.enemies.splice(i, 1);
                 }
-            }
-
-            else if(this.lives <= 0){
+            } else if(this.lives <= 0){
                 this.lives = 0;
                 this.endGame();
             } else if(this.score === 13){
