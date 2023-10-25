@@ -41,6 +41,12 @@ class Enemies {
         this.top += this.directionY;
         this.updatePosition();
 
+        setTimeout(()=>{
+            this.directionX = this.directionX * 1.05;
+            this.directionY = this.directionY * 1.05;
+        }, 500);
+
+
         this.element.style.width = `${this.width}px`;
         this.element.style.height = `${this.height}px`;
 
