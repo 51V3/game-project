@@ -11,6 +11,7 @@ class Game {
         this.score = 0;
         this.lives = 3;
         this.gameOver = false;
+        this.gameWin = false;
         this.loadingEnemie = false;
         this.isLevelUp = [false, false, false]
     }
@@ -55,12 +56,9 @@ class Game {
                 if(this.score >= 3 && this.score <= 6){
                     this.lives --;
                     enemy.element.remove();
-                    enemy.element.remove();
                     this.enemies.splice(i, 2);
-                } else if(this.score >= 7 && this.score <= 12){
+                } else if(this.score >= 7 && this.score <= 13){
                     this.lives --;
-                    enemy.element.remove();
-                    enemy.element.remove();
                     enemy.element.remove();
                     this.enemies.splice(i, 3);
                 } else{
@@ -72,6 +70,7 @@ class Game {
                 this.lives = 0;
                 this.endGame();
             } else if(this.score === 13){
+                this.lives = 13;
                 this.winGame();
             } 
         };
@@ -128,6 +127,7 @@ class Game {
     };
 
     winGame(){
+        this.gameWin = true;
         this.player.element.remove();
         this.enemies.forEach(enemie=>{
             enemie.element.remove();
@@ -135,6 +135,7 @@ class Game {
         this.gameScreen.style.display = "none";
         this.gameWinScreen.style.display = "block";
     };
+
     endGame(){
         this.gameOver = true;
         this.player.element.remove();
