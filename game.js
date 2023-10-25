@@ -98,7 +98,8 @@ class Game {
                 this.loadingEnemie = false;
             }, 500);
         }
-    } else {
+    } 
+        else {
         if(!this.enemies.length && !this.loadingEnemie){
             this.loadingEnemie = true;
             setTimeout(() =>{

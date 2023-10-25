@@ -169,8 +169,8 @@ body{
     color:white;
     width: 20px;
     height: 20px;
-    padding-top: 43.5%;
-    padding-left: 64.2%;
+    margin-top: 43.5%;
+    margin-left: 64.2%;
     color: #0093f5;
     font-size: 20px;
     text-shadow: 1px 1px 2px rgb(141, 148, 255), 0 0 1em rgb(141, 148, 255), 0 0 0.2em rgb(141, 148, 255);
@@ -276,4 +276,58 @@ body{
     padding-right: 15px;
     font-size: 15px;
     font-family: MegatransdemoRegular;
+}
+
+#game-win{
+    display: none;
+    justify-content: right;
+    align-items:center;
+    font-family: MegatransdemoRegular;
+    font-size: 40px;
+    position: center center;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+#game-win p{
+    font-size: 18px;
+    width: 40%;
+}
+
+#win-info h1{
+    color: rgb(0, 255, 42);
+    text-shadow: 0px 0px 5px 5px #09ff00;
+    width: 80%;
+}
+
+#win-video{
+    position: fixed;
+    z-index:-1;
+    right: 0;
+    bottom: 0;
+    width: 100%; 
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    object-position: center center;
+    object-fit: cover;
+}
+
+#win-info{
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:1;
+    color:white;
+    margin-left: 750px;
+    margin-top: 10px;
+    width: 40%;
+}
+
+#win-info p{
+    width: 80%;
+    margin-top: -30px;
+    margin-bottom: 30px;
 }
