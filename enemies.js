@@ -1,12 +1,13 @@
 class Enemies {   
-    constructor(gameScreen, directionX, directionY) {
+    constructor(gameScreen, directionX, directionY, width, height, grow) {
         this.gameScreen = gameScreen;
         this.element = document.createElement("img");
         this.element.src = "./images/275592.gif";
         this.left = Math.random() * (this.gameScreen.offsetWidth - 60);
         this.top = 50;
-        this.width = 60;
-        this.height = 60;
+        this.width = width;
+        this.height = height;
+        this.grow = grow;
         this.element.style.position = "absolute";
         this.element.style.left = `${this.left}px`;
         this.element.style.marginTop = "-200px";
@@ -16,7 +17,7 @@ class Enemies {
         this.boundaryX = this.gameScreen.offsetWidth - this.width;
         this.boundaryY = this.gameScreen.offsetHeight + 200 - this.height;
         this.move();
-        
+
     }
         
     updatePosition() {
@@ -36,8 +37,8 @@ class Enemies {
         } else if (this.top + this.height >= this.boundaryY) {
             this.directionY = -Math.abs(this.directionY);
         }
-        this.width += 0.2;
-        this.height += 0.2;
+        this.width *= this.grow;
+        this.height *= this.grow;
         this.left += this.directionX;
         this.top += this.directionY;
         this.updatePosition();
