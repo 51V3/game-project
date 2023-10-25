@@ -1,6 +1,7 @@
 window.onload = function () {
   const startButton = document.getElementById("start-button");
   const restartButton = document.getElementById("restart-button");
+  const restartWin = document.getElementById("restart-win");
   let game;
 
   startButton.addEventListener("click", function () {
@@ -39,16 +40,16 @@ window.onload = function () {
           if (game && game.player) {
               switch (key) {
                   case "ArrowLeft":
-                      game.player.directionX = -8;
+                      game.player.directionX = -5;
                       break;
                   case "ArrowRight":
-                      game.player.directionX = 8;
+                      game.player.directionX = 5;
                       break;
                   case "ArrowUp":
-                      game.player.directionY = -8;
+                      game.player.directionY = -5;
                       break;
                   case "ArrowDown":
-                      game.player.directionY = 8;
+                      game.player.directionY = 5;
                       break;
               }
           }
@@ -85,9 +86,13 @@ window.onload = function () {
   restartButton.addEventListener("click", function () {
       restartGame();
   });
+  restartWin.addEventListener("click", function () {
+    restartGame();
+});
 
   function restartGame() {
       location.reload();
   }
 };
+
 
