@@ -3,6 +3,7 @@ class Game {
         this.startScreen = document.getElementById("game-intro");
         this.gameScreen = document.getElementById("game-screen");
         this.gameEndScreen = document.getElementById("game-over");
+        this.gameWinScreen = document.getElementById("game-win")
         this.player = new Player(this.gameScreen, 50, 20, 40, 40, "../images/sight.png");
         this.height = 600;
         this.width = 800;
@@ -10,6 +11,7 @@ class Game {
         this.score = 0;
         this.lives = 3;
         this.gameOver = false;
+        this.gameWin = false;
         this.loadingEnemie = false;
         this.isLevelUp = [false, false, false]
     }
@@ -50,17 +52,13 @@ class Game {
                     document.getElementById("collision").style.display = "none";
                     this.isLevelUp[2] = true;
                 }, 1000);
-                this.lives --;
                 enemy.element.remove();
                 if(this.score >= 3 && this.score <= 6){
                     this.lives --;
                     enemy.element.remove();
-                    enemy.element.remove();
                     this.enemies.splice(i, 2);
-                } else if(this.score >= 7 && this.score <= 12){
+                } else if(this.score >= 7 && this.score <= 13){
                     this.lives --;
-                    enemy.element.remove();
-                    enemy.element.remove();
                     enemy.element.remove();
                     this.enemies.splice(i, 3);
                 } else{
@@ -71,10 +69,13 @@ class Game {
             } else if(this.lives <= 0){
                 this.lives = 0;
                 this.endGame();
-            }
+            } else if(this.score === 13){
+                this.lives = 13;
+                this.winGame();
+            } 
         };
 
-        if (this.score === 1 && this.isLevelUp[0] === false){
+        if (this.score === 3 && this.isLevelUp[0] === false){
             document.getElementById("new-level").style.display = "flex";
             setTimeout(() => {
                 document.getElementById("new-level").style.display = "none";
@@ -82,19 +83,11 @@ class Game {
             }, 1000);
             console.log(this.isLevelUp[0])
         }
-        if (this.score === 3 && this.isLevelUp[1] === false){
+        if (this.score === 7 && this.isLevelUp[1] === false){
             document.getElementById("new-level").style.display = "flex";
             setTimeout(() => {
                 document.getElementById("new-level").style.display = "none";
                 this.isLevelUp[1] = true;
-            }, 1000);
-            console.log(this.isLevelUp[0])
-        }
-        if (this.score === 5 && this.isLevelUp[2] === false){
-            document.getElementById("new-level").style.display = "flex";
-            setTimeout(() => {
-                document.getElementById("new-level").style.display = "none";
-                this.isLevelUp[2] = true;
             }, 1000);
             console.log(this.isLevelUp[0])
         }
@@ -103,26 +96,45 @@ class Game {
         let lives = document.getElementById("lives");
         score.innerHTML = this.score;
         lives.innerHTML = this.lives;
-        if(this.score >2){
-        if(!this.enemies.length && !this.loadingEnemie){
-            this.loadingEnemie = true;
-            setTimeout(() =>{
-                this.enemies.push(new Enemies(this.gameScreen, 8, 8));
-                this.enemies.push(new Enemies(this.gameScreen, 8, 8));
-                this.loadingEnemie = false;
-            }, 500);
-        }
-    } 
-        else {
-        if(!this.enemies.length && !this.loadingEnemie){
-            this.loadingEnemie = true;
-            setTimeout(() =>{
-                this.enemies.push(new Enemies(this.gameScreen, 5, 5));
-                this.loadingEnemie = false;
-            }, 500);
+        if(this.score >= 3 && this.score <= 6){
+            if(!this.enemies.length && !this.loadingEnemie){
+                this.loadingEnemie = true;
+                setTimeout(() =>{
+                    this.enemies.push(new Enemies(this.gameScreen, 8, 8, 60, 60, 1.005));
+                    this.enemies.push(new Enemies(this.gameScreen, 8, 8, 60, 60, 1.005));
+                    this.loadingEnemie = false;
+                }, 500);
+            }
+        } else if(this.score >= 7 && this.score <= 12){
+            if(!this.enemies.length && !this.loadingEnemie){
+                this.loadingEnemie = true;
+                setTimeout(() =>{
+                    this.enemies.push(new Enemies(this.gameScreen, 12, 12, 60, 60, 1.005));
+                    this.enemies.push(new Enemies(this.gameScreen, 12, 12, 60, 60, 1.005));
+                    this.enemies.push(new Enemies(this.gameScreen, 12, 12, 60, 60, 1.005));
+                    this.loadingEnemie = false;
+                }, 500);
+            }
+        } else {
+            if(!this.enemies.length && !this.loadingEnemie){
+                this.loadingEnemie = true;
+                setTimeout(() =>{
+                    this.enemies.push(new Enemies(this.gameScreen, 5, 5, 60, 60, 1.003));
+                    this.loadingEnemie = false;
+                }, 500);
+            };
         };
-        };
-    }
+    };
+
+    winGame(){
+        this.gameWin = true;
+        this.player.element.remove();
+        this.enemies.forEach(enemie=>{
+            enemie.element.remove();
+        });
+        this.gameScreen.style.display = "none";
+        this.gameWinScreen.style.display = "block";
+    };
 
     endGame(){
         this.gameOver = true;
@@ -134,3 +146,4 @@ class Game {
         this.gameEndScreen.style.display = "block";
     }
 }
+
