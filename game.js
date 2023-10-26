@@ -4,7 +4,7 @@ class Game {
         this.gameScreen = document.getElementById("game-screen");
         this.gameEndScreen = document.getElementById("game-over");
         this.gameWinScreen = document.getElementById("game-win")
-        this.player = new Player(this.gameScreen, 50, 20, 40, 40, "./images/sight.png");
+        this.player = new Player(this.gameScreen, 650, 250, 40, 40, "./images/sight.png");
         this.height = 600;
         this.width = 800;
         this.enemies = [];
@@ -13,7 +13,7 @@ class Game {
         this.gameOver = false;
         this.gameWin = false;
         this.loadingEnemie = false;
-        this.isLevelUp = [false, false, false]
+        this.isLevelUp = [false, false, false, false]
         this.collide = document.getElementById("audio-collide");
     }
 
@@ -167,7 +167,6 @@ class Game {
         });
         this.gameScreen.style.display = "none";
         this.gameEndScreen.style.display = "block";
-        this.endAudio.play();
     }
 }
 
