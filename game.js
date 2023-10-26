@@ -4,7 +4,7 @@ class Game {
         this.gameScreen = document.getElementById("game-screen");
         this.gameEndScreen = document.getElementById("game-over");
         this.gameWinScreen = document.getElementById("game-win")
-        this.player = new Player(this.gameScreen, 50, 20, 40, 40, "../images/sight.png");
+        this.player = new Player(this.gameScreen, 50, 20, 40, 40, "./images/sight.png");
         this.height = 600;
         this.width = 800;
         this.enemies = [];
@@ -44,7 +44,7 @@ class Game {
 
     update(){
         for (let i = this.enemies.length - 1; i >= 0; i--){
-            
+
             const enemy = this.enemies[i];
             
             if(enemy.height >= 250){
