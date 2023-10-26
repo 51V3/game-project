@@ -67,6 +67,7 @@ class Game {
                     document.getElementById("lives").style.display = "none";
                     document.getElementById("lives-set").style.display = "none";
                     document.getElementById("spaceship").src = "./images/gifmaker_me.gif";
+                    document.getElementById("crash").play();
                     setTimeout(() => {
                         document.getElementById("score").style.display = "flex";
                         document.getElementById("score-set").style.display = "flex";
@@ -87,6 +88,7 @@ class Game {
                     document.getElementById("lives").style.display = "none";
                     document.getElementById("lives-set").style.display = "none";
                     document.getElementById("spaceship").src = "./images/gifmaker_me.gif";
+                    document.getElementById("crash").play();
                     setTimeout(() => {
                         document.getElementById("score").style.display = "flex";
                         document.getElementById("score-set").style.display = "flex";
@@ -107,6 +109,7 @@ class Game {
                     document.getElementById("lives").style.display = "none";
                     document.getElementById("lives-set").style.display = "none";
                     document.getElementById("spaceship").src = "./images/gifmaker_me.gif";
+                    document.getElementById("crash").play();
                     setTimeout(() => {
                         document.getElementById("score").style.display = "flex";
                         document.getElementById("score-set").style.display = "flex";
@@ -127,6 +130,7 @@ class Game {
                     document.getElementById("lives").style.display = "none";
                     document.getElementById("lives-set").style.display = "none";
                     document.getElementById("spaceship").src = "./images/gifmaker_me.gif";
+                    document.getElementById("crash").play();
                     setTimeout(() => {
                         document.getElementById("score").style.display = "flex";
                         document.getElementById("score-set").style.display = "flex";
@@ -147,6 +151,7 @@ class Game {
                     document.getElementById("lives").style.display = "none";
                     document.getElementById("lives-set").style.display = "none";
                     document.getElementById("spaceship").src = "./images/gifmaker_me.gif";
+                    document.getElementById("crash").play();
                     setTimeout(() => {
                         document.getElementById("score").style.display = "flex";
                         document.getElementById("score-set").style.display = "flex";
@@ -159,7 +164,7 @@ class Game {
                     }, 500);
                 }
             } 
-            else if(this.lives <= 0){
+            if(this.lives <= 0){
                 this.lives = 0;
                 this.endGame();
             } else if(this.score === 13){
@@ -277,6 +282,8 @@ class Game {
         });
         this.gameScreen.style.display = "none";
         this.gameEndScreen.style.display = "block";
+        const finalAudio = document.getElementById("over-music").play();
+        finalAudio.play();
     }
 }
 
