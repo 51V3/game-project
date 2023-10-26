@@ -2,6 +2,8 @@ window.onload = function () {
   const startButton = document.getElementById("start-button");
   const restartButton = document.getElementById("restart-button");
   const restartWin = document.getElementById("restart-win");
+  const audio = document.getElementById("shoot-sound");
+  const backgroundAudio = document.getElementById("background-music");
   let game;
 
   startButton.addEventListener("click", function () {
@@ -12,6 +14,8 @@ window.onload = function () {
       console.log("start Game");
       game = new Game();
       game.start();
+      backgroundAudio.volume = 0.2;
+      backgroundAudio.play();
       requestAnimationFrame(gameLoop); 
   }
 
@@ -28,6 +32,8 @@ window.onload = function () {
   const shot = document.addEventListener("keydown", function (event) {
       if (event.key === " " || event.key === "Spacebar") {
           game.updateCollision();
+          audio.volume = 0.2;
+          audio.play();
       }
   });
 

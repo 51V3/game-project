@@ -14,6 +14,7 @@ class Game {
         this.gameWin = false;
         this.loadingEnemie = false;
         this.isLevelUp = [false, false, false]
+        this.collide = document.getElementById("audio-collide");
     }
 
     start(){
@@ -35,9 +36,18 @@ class Game {
             const enemy = this.enemies[i];
         
             if(this.player.shotCollision(enemy)) {
+                this.collide.play()
                 this.score ++;
-                enemy.element.remove();
-                this.enemies.splice(i, 1);
+                enemy.directionX = 0;
+                enemy.directionY = 0;
+                enemy.grow = 1;
+                setInterval(() => {
+                    enemy.element.src = "./images/explosion-boom.gif"
+                }, 100);
+                setTimeout(() => {
+                    enemy.element.remove();
+                    this.enemies.splice(i, 1);
+                }, 250);
             }  
         }
     }
@@ -49,10 +59,22 @@ class Game {
             
             if(enemy.height >= 250){
                 document.getElementById("collision").style.display = "block";
+                document.getElementById("score").style.display = "none";
+                document.getElementById("score-set").style.display = "none";
+                document.getElementById("lives").style.display = "none";
+                document.getElementById("lives-set").style.display = "none";
+                document.getElementById("spaceship").src = "./images/gifmaker_me.gif";
                 setTimeout(() => {
+                    document.getElementById("score").style.display = "flex";
+                    document.getElementById("score-set").style.display = "flex";
+                    document.getElementById("lives").style.display = "flex";
+                document.getElementById("lives-set").style.display = "flex";
+                }, 200);
+                setTimeout(() => {
+                    document.getElementById("spaceship").src = "./images/painel base espacial.png";
                     document.getElementById("collision").style.display = "none";
-                    this.isLevelUp[2] = true;
-                }, 1000);
+                }, 500);
+                this.isLevelUp[2] = true;
                 if(this.score >= 3 && this.score < 7){
                     this.lives --;
                     enemy.element.remove();
@@ -70,7 +92,7 @@ class Game {
                 this.lives = 0;
                 this.endGame();
             } else if(this.score === 13){
-                this.lives = 13;
+                this.score = 13;
                 this.winGame();
             } 
         };
@@ -106,6 +128,7 @@ class Game {
                 }, 500);
             }
         } else if(this.score >= 7 && this.score < 13){
+            console.log("working?")
             if(!this.enemies.length && !this.loadingEnemie){
                 this.loadingEnemie = true;
                 setTimeout(() =>{
@@ -144,6 +167,7 @@ class Game {
         });
         this.gameScreen.style.display = "none";
         this.gameEndScreen.style.display = "block";
+        this.endAudio.play();
     }
 }
 

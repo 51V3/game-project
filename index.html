@@ -16,7 +16,7 @@
         <button id="start-button">Start Game</button>
       </div>
       <video autoplay muted loop id="my-video">
-        <source src="./images/space-video.mp4" type="video/mp4">
+        <source src="./images/space-video.mp4" type="video/mp4" alt="space-video-start">
       </video>
     </section>
     <section id="game-screen">
@@ -25,10 +25,13 @@
       <div id="player-board">
         <p id="score-set">Score: <span id="score">0</span></p>
         <p id="lives-set">Lives: <span id="lives">3</span></p>
-        <img src="./images/painel base espacial.png"/>
+        <img id="spaceship" src="./images/painel base espacial.png" alt="Spaceship"/>
+        <audio id="shoot-sound" src="./musics/explosion-lazer_A_minor.wav" preload="auto"></audio>
+        <audio id="audio-collide" src="./musics/final-explosion.wav" preload="auto"></audio>
+        <audio id="background-music" autoplay src="./musics/bass-line-winning-bass_85bpm.wav" loop></audio>
       </div>
       <video autoplay muted loop id="game-screen-video">
-        <source src="./images/game-screen-background.mp4" type="video/mp4">
+        <source src="./images/game-screen-background.mp4" type="video/mp4" alt="space-video-game">
       </video>
     </section>
     <section id="game-over">
@@ -40,6 +43,7 @@
       <video autoplay muted loop id="over-video">
         <source src="./images/space-video.mp4" type="video/mp4">
       </video>
+      <audio id="background-end" autoplay src="./musics/levels-hypertrap-melody_150bpm_C#_minor.wav" loop></audio>
     </section>
     <section id="game-win">
       <div id="win-info">
@@ -48,7 +52,7 @@
         <button id="restart-win">Restart</button>
       </div>
       <video autoplay muted loop id="win-video">
-        <source src="./images/space-video.mp4" type="video/mp4">
+        <source src="./images/space-video.mp4" type="video/mp4" alt="space-video-end">
       </video>
     </section>
     <script src="game.js"></script>

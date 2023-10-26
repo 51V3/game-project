@@ -9,10 +9,11 @@ body{
     width: 100%;
     overflow: hidden;
 }
+
 @font-face {
     font-family: MegatransdemoRegular;
     src: url(./images/MegatransdemoRegular.otf);
-    
+
 }
 #game-intro{
     display: block;
@@ -94,6 +95,7 @@ body{
     padding: 0;
     object-position: center center;
     object-fit: cover;
+    animation-play-state: 0.5;
 }
 
 #player-board{
@@ -110,6 +112,7 @@ body{
 
 #score{
     position: fixed;
+    display: flex;
     justify-content: center;
     align-items:center;
     top:0;
@@ -118,7 +121,7 @@ body{
     color:white;
     width: 20px;
     height: 20px;
-    margin-top: 43.5%;
+    margin-top: 40.5%;
     margin-left: 37.8%;
     background-color: black;
     color: #0093f5;
@@ -127,6 +130,7 @@ body{
 
 #score-set{
     position: fixed;
+    display: flex;
     justify-content: center;
     align-items:center;
     top:0;
@@ -135,7 +139,7 @@ body{
     color:white;
     width: 20px;
     height: 20px;
-    margin-top: 43.5%;
+    margin-top: 40.5%;
     margin-left: 31.8%;
     background-color: black;
     color: #0093f5;
@@ -145,6 +149,7 @@ body{
 
 #lives{
     position: fixed;
+    display: flex;
     justify-content: center;
     align-items:center;
     top:0;
@@ -153,8 +158,8 @@ body{
     color:white;
     width: 20px;
     height: 20px;
-    margin-top: 43.5%;
-    margin-left: 69.2%;
+    margin-top: 40.5%;
+    margin-left: 70.2%;
     background-color: black;
     color: #0093f5;
     text-shadow: 1px 1px 2px rgb(141, 148, 255), 0 0 1em rgb(141, 148, 255), 0 0 0.2em rgb(141, 148, 255);
@@ -162,6 +167,7 @@ body{
 
 #lives-set{
     position: fixed;
+    display: flex;
     justify-content: center;
     align-items:center;
     top:0;
@@ -170,8 +176,8 @@ body{
     color:white;
     width: 20px;
     height: 20px;
-    margin-top: 43.5%;
-    margin-left: 64.2%;
+    margin-top: 40.5%;
+    margin-left: 65.2%;
     color: #0093f5;
     font-size: 20px;
     text-shadow: 1px 1px 2px rgb(141, 148, 255), 0 0 1em rgb(141, 148, 255), 0 0 0.2em rgb(141, 148, 255);
