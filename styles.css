@@ -33,7 +33,7 @@ body{
 }
 
 #my-video{
-    position: relative;
+    position: absolute;
     z-index:0;
     right: 0;
     bottom: 0;
@@ -47,15 +47,15 @@ body{
     left:0;
     z-index:1;
     color:white;
-    margin-left: 700px;
-    margin-top: 100px;
-    width: 50%;
+    margin-left: 500px;
+    margin-top: 5%;
+    width: 60%;
 }
 
 .start-info p{
     width: 80%;
     margin-top: -30px;
-    margin-bottom: 30px;
+    margin-bottom: 60px;
 }
 
 #start-button{
@@ -267,7 +267,7 @@ body{
 #over-info p{
     width: 80%;
     margin-top: -30px;
-    margin-bottom: 30px;
+    margin-bottom: 60px;
 }
 
 #restart-button{
@@ -305,7 +305,9 @@ body{
 #win-info h1{
     color: rgb(0, 255, 42);
     text-shadow: 0px 0px 5px 5px #09ff00;
-    width: 80%;
+    width: 100%;
+    font-size: 50px;
+    margin-bottom: 80px;
 }
 
 #win-video{
@@ -327,15 +329,16 @@ body{
     left:0;
     z-index:1;
     color:white;
-    margin-left: 750px;
-    margin-top: 10px;
-    width: 40%;
+    margin-left: 700px;
+    margin-top: 5%;
+    width: 50%;
 }
 
 #win-info p{
     width: 80%;
     margin-top: -30px;
-    margin-bottom: 30px;
+    margin-bottom: 60px;
+    margin-left: 2%;
 }
 
 #restart-win{
@@ -348,6 +351,7 @@ body{
     padding-bottom: 10px;
     padding-left: 15px;
     padding-right: 15px;
+    margin-left: 2%;
     font-size: 15px;
     font-family: MegatransdemoRegular;
 }

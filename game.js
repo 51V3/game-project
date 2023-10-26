@@ -264,11 +264,10 @@ class Game {
         }
         this.gameOver = true;
         this.player.element.remove();
-        this.enemies.forEach(enemie=>{
-            enemie.element.remove();
-        });
         this.gameScreen.style.display = "none";
         this.gameWinScreen.style.display = "block";
+        const winAudio = document.getElementById("win-music").play();
+        winAudio.play();
     };
 
     endGame(){
@@ -277,13 +276,17 @@ class Game {
         }
         this.gameOver = true;
         this.player.element.remove();
-        this.enemies.forEach(enemie=>{
-            enemie.element.remove();
-        });
         this.gameScreen.style.display = "none";
         this.gameEndScreen.style.display = "block";
         const finalAudio = document.getElementById("over-music").play();
         finalAudio.play();
+    }
+
+    removeEnemies() {
+        this.enemies.forEach((enemy) => {
+            enemy.element.remove();
+        });
+        this.enemies = []; 
     }
 }
 
