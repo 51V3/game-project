@@ -37,8 +37,11 @@ class Enemies {
         } else if (this.top + this.height >= this.boundaryY) {
             this.directionY = -Math.abs(this.directionY);
         }
-        this.width *= this.grow;
-        this.height *= this.grow;
+        
+        if (this.width * this.grow < 255 && this.height * this.grow < 255) {
+            this.width *= this.grow;
+            this.height *= this.grow;
+        }
         this.left += this.directionX;
         this.top += this.directionY;
         this.updatePosition();

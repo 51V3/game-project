@@ -11,7 +11,6 @@ class Game {
         this.score = 0;
         this.lives = 3;
         this.gameOver = false;
-        this.gameWin = false;
         this.loadingEnemie = false;
         this.isLevelUp = [false, false, false, false]
         this.collide = document.getElementById("audio-collide");
@@ -32,7 +31,7 @@ class Game {
     }
    
     updateCollision(){
-        for (let i=0; i < this.enemies.length; i++){
+        for (let i = this.enemies.length - 1; i >= 0; i--){
             const enemy = this.enemies[i];
         
             if(this.player.shotCollision(enemy)) {
@@ -58,37 +57,109 @@ class Game {
             const enemy = this.enemies[i];
             
             if(enemy.height >= 250){
-                document.getElementById("collision").style.display = "block";
-                document.getElementById("score").style.display = "none";
-                document.getElementById("score-set").style.display = "none";
-                document.getElementById("lives").style.display = "none";
-                document.getElementById("lives-set").style.display = "none";
-                document.getElementById("spaceship").src = "./images/gifmaker_me.gif";
-                setTimeout(() => {
-                    document.getElementById("score").style.display = "flex";
-                    document.getElementById("score-set").style.display = "flex";
-                    document.getElementById("lives").style.display = "flex";
-                document.getElementById("lives-set").style.display = "flex";
-                }, 200);
-                setTimeout(() => {
-                    document.getElementById("spaceship").src = "./images/painel base espacial.png";
-                    document.getElementById("collision").style.display = "none";
-                }, 500);
-                this.isLevelUp[2] = true;
                 if(this.score >= 3 && this.score < 7){
                     this.lives --;
                     enemy.element.remove();
-                    this.enemies.splice(i, 2);
-                } else if(this.score >= 7 && this.score < 13){
+                    this.enemies.splice(i, this.enemies.length);
+                    document.getElementById("collision").style.display = "block";
+                    document.getElementById("score").style.display = "none";
+                    document.getElementById("score-set").style.display = "none";
+                    document.getElementById("lives").style.display = "none";
+                    document.getElementById("lives-set").style.display = "none";
+                    document.getElementById("spaceship").src = "./images/gifmaker_me.gif";
+                    setTimeout(() => {
+                        document.getElementById("score").style.display = "flex";
+                        document.getElementById("score-set").style.display = "flex";
+                        document.getElementById("lives").style.display = "flex";
+                        document.getElementById("lives-set").style.display = "flex";
+                    }, 200);
+                    setTimeout(() => {
+                        document.getElementById("spaceship").src = "./images/painel base espacial.png";
+                        document.getElementById("collision").style.display = "none";
+                    }, 500);
+                } else if(this.score >= 7 && this.score < 15){
                     this.lives --;
                     enemy.element.remove();
-                    this.enemies.splice(i, 3);
-                } else if(this.score < 3){
+                    this.enemies.splice(i, this.enemies.length);
+                    document.getElementById("collision").style.display = "block";
+                    document.getElementById("score").style.display = "none";
+                    document.getElementById("score-set").style.display = "none";
+                    document.getElementById("lives").style.display = "none";
+                    document.getElementById("lives-set").style.display = "none";
+                    document.getElementById("spaceship").src = "./images/gifmaker_me.gif";
+                    setTimeout(() => {
+                        document.getElementById("score").style.display = "flex";
+                        document.getElementById("score-set").style.display = "flex";
+                        document.getElementById("lives").style.display = "flex";
+                        document.getElementById("lives-set").style.display = "flex";
+                    }, 200);
+                    setTimeout(() => {
+                        document.getElementById("spaceship").src = "./images/painel base espacial.png";
+                        document.getElementById("collision").style.display = "none";
+                    }, 500);
+                } else if(this.score >= 15 && this.score < 28){
                     this.lives --;
                     enemy.element.remove();
-                    this.enemies.splice(i, 1);
+                    this.enemies.splice(i, this.enemies.length);
+                    document.getElementById("collision").style.display = "block";
+                    document.getElementById("score").style.display = "none";
+                    document.getElementById("score-set").style.display = "none";
+                    document.getElementById("lives").style.display = "none";
+                    document.getElementById("lives-set").style.display = "none";
+                    document.getElementById("spaceship").src = "./images/gifmaker_me.gif";
+                    setTimeout(() => {
+                        document.getElementById("score").style.display = "flex";
+                        document.getElementById("score-set").style.display = "flex";
+                        document.getElementById("lives").style.display = "flex";
+                        document.getElementById("lives-set").style.display = "flex";
+                    }, 200);
+                    setTimeout(() => {
+                        document.getElementById("spaceship").src = "./images/painel base espacial.png";
+                        document.getElementById("collision").style.display = "none";
+                    }, 500);
+                }else if(this.score >= 28 && this.score <35){
+                    this.lives --;
+                    enemy.element.remove();
+                    this.enemies.splice(i, this.enemies.length);
+                    document.getElementById("collision").style.display = "block";
+                    document.getElementById("score").style.display = "none";
+                    document.getElementById("score-set").style.display = "none";
+                    document.getElementById("lives").style.display = "none";
+                    document.getElementById("lives-set").style.display = "none";
+                    document.getElementById("spaceship").src = "./images/gifmaker_me.gif";
+                    setTimeout(() => {
+                        document.getElementById("score").style.display = "flex";
+                        document.getElementById("score-set").style.display = "flex";
+                        document.getElementById("lives").style.display = "flex";
+                        document.getElementById("lives-set").style.display = "flex";
+                    }, 200);
+                    setTimeout(() => {
+                        document.getElementById("spaceship").src = "./images/painel base espacial.png";
+                        document.getElementById("collision").style.display = "none";
+                    }, 500);
+                } else {
+                    this.lives --;
+                    enemy.element.remove();
+                    this.enemies.splice(i, this.enemies.length);
+                    document.getElementById("collision").style.display = "block";
+                    document.getElementById("score").style.display = "none";
+                    document.getElementById("score-set").style.display = "none";
+                    document.getElementById("lives").style.display = "none";
+                    document.getElementById("lives-set").style.display = "none";
+                    document.getElementById("spaceship").src = "./images/gifmaker_me.gif";
+                    setTimeout(() => {
+                        document.getElementById("score").style.display = "flex";
+                        document.getElementById("score-set").style.display = "flex";
+                        document.getElementById("lives").style.display = "flex";
+                        document.getElementById("lives-set").style.display = "flex";
+                    }, 200);
+                    setTimeout(() => {
+                        document.getElementById("spaceship").src = "./images/painel base espacial.png";
+                        document.getElementById("collision").style.display = "none";
+                    }, 500);
                 }
-            } else if(this.lives <= 0){
+            } 
+            else if(this.lives <= 0){
                 this.lives = 0;
                 this.endGame();
             } else if(this.score === 13){
@@ -103,7 +174,6 @@ class Game {
                 document.getElementById("new-level").style.display = "none";
                 this.isLevelUp[0] = true;
             }, 1000);
-            console.log(this.isLevelUp[0])
         }
         if (this.score === 7 && this.isLevelUp[1] === false){
             document.getElementById("new-level").style.display = "flex";
@@ -111,7 +181,18 @@ class Game {
                 document.getElementById("new-level").style.display = "none";
                 this.isLevelUp[1] = true;
             }, 1000);
-            console.log(this.isLevelUp[0])
+        } else  if (this.score === 15 && this.isLevelUp[2] === false){
+            document.getElementById("new-level").style.display = "flex";
+            setTimeout(() => {
+                document.getElementById("new-level").style.display = "none";
+                this.isLevelUp[2] = true;
+            }, 1000);
+        } else  if (this.score === 28 && this.isLevelUp[3] === false){
+            document.getElementById("new-level").style.display = "flex";
+            setTimeout(() => {
+                document.getElementById("new-level").style.display = "none";
+                this.isLevelUp[3] = true;
+            }, 1000);
         }
 
         let score = document.getElementById("score");
@@ -122,23 +203,46 @@ class Game {
             if(!this.enemies.length && !this.loadingEnemie){
                 this.loadingEnemie = true;
                 setTimeout(() =>{
-                    this.enemies.push(new Enemies(this.gameScreen, 8, 8, 60, 60, 1.005));
-                    this.enemies.push(new Enemies(this.gameScreen, 8, 8, 60, 60, 1.005));
+                    this.enemies.push(new Enemies(this.gameScreen, 7, 8, 60, 60, 1.003));
+                    this.enemies.push(new Enemies(this.gameScreen, 10, 8, 60, 60, 1.003));
                     this.loadingEnemie = false;
                 }, 500);
             }
-        } else if(this.score >= 7 && this.score < 13){
+        } else if(this.score >= 7 && this.score < 15){
             console.log("working?")
             if(!this.enemies.length && !this.loadingEnemie){
                 this.loadingEnemie = true;
                 setTimeout(() =>{
-                    this.enemies.push(new Enemies(this.gameScreen, 12, 12, 60, 60, 1.005));
-                    this.enemies.push(new Enemies(this.gameScreen, 12, 12, 60, 60, 1.005));
-                    this.enemies.push(new Enemies(this.gameScreen, 12, 12, 60, 60, 1.005));
+                    this.enemies.push(new Enemies(this.gameScreen, 7, 10, 60, 60, 1.005));
+                    this.enemies.push(new Enemies(this.gameScreen, 8, 12, 60, 60, 1.005));
+                    this.enemies.push(new Enemies(this.gameScreen, 6, 11, 60, 60, 1.005));
                     this.loadingEnemie = false;
                 }, 500);
             }
-        } else {
+        } else if(this.score >= 15 && this.score < 28){
+            if(!this.enemies.length && !this.loadingEnemie){
+                this.loadingEnemie = true;
+                setTimeout(() =>{
+                    this.enemies.push(new Enemies(this.gameScreen, 8, 9, 60, 60, 1.005));
+                    this.enemies.push(new Enemies(this.gameScreen, 9, 10, 60, 60, 1.005));
+                    this.enemies.push(new Enemies(this.gameScreen, 10, 11, 60, 60, 1.005));
+                    this.enemies.push(new Enemies(this.gameScreen, 7, 12, 60, 60, 1.005));
+                    this.loadingEnemie = false;
+                }, 500);
+            }
+        }else if(this.score >= 28 && this.score < 35){
+            if(!this.enemies.length && !this.loadingEnemie){
+                this.loadingEnemie = true;
+                setTimeout(() =>{
+                    this.enemies.push(new Enemies(this.gameScreen, 11, 10, 60, 60, 1.006));
+                    this.enemies.push(new Enemies(this.gameScreen, 10, 9, 60, 60, 1.007));
+                    this.enemies.push(new Enemies(this.gameScreen, 9, 11, 60, 60, 1.006));
+                    this.enemies.push(new Enemies(this.gameScreen, 8, 12, 60, 60, 1.007));
+                    this.enemies.push(new Enemies(this.gameScreen, 7, 5, 60, 60, 1.006));
+                    this.loadingEnemie = false;
+                }, 500);
+            }
+        }else {
             if(!this.enemies.length && !this.loadingEnemie){
                 this.loadingEnemie = true;
                 setTimeout(() =>{
@@ -150,7 +254,10 @@ class Game {
     };
 
     winGame(){
-        this.gameWin = true;
+        if (this.gameOver) {
+            return;
+        }
+        this.gameOver = true;
         this.player.element.remove();
         this.enemies.forEach(enemie=>{
             enemie.element.remove();
@@ -160,6 +267,9 @@ class Game {
     };
 
     endGame(){
+        if (this.gameOver) {
+            return;
+        }
         this.gameOver = true;
         this.player.element.remove();
         this.enemies.forEach(enemie=>{
