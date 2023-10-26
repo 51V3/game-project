@@ -32,8 +32,8 @@ class Player {
       this.left = 0;
     }
 
-    if (this.top > 430 - this.height) {
-      this.top  = 430 - this.height;
+    if (this.top > 625 - this.height) {
+      this.top  = 625 - this.height;
     }
     
     if (this.top <= 0) {

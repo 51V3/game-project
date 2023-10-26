@@ -4,7 +4,7 @@ class Game {
         this.gameScreen = document.getElementById("game-screen");
         this.gameEndScreen = document.getElementById("game-over");
         this.gameWinScreen = document.getElementById("game-win")
-        this.player = new Player(this.gameScreen, 650, 250, 40, 40, "./images/sight.png");
+        this.player = new Player(this.gameScreen, 850, 450, 40, 40, "./images/sight.png");
         this.height = 600;
         this.width = 800;
         this.enemies = [];
